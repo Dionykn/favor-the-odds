@@ -1,0 +1,133 @@
+[gd_scene format=3 uid="uid://0dxn3w7pjr2f"]
+
+[ext_resource type="Texture2D" uid="uid://diqororosxni1" path="res://Sprites/Cards/back.jpg" id="1_g3omm"]
+
+[node name="CpuUI" type="Control" unique_id=538773785]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CpuDeck" type="TextureButton" parent="." unique_id=899339495]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -805.0001
+offset_top = -511.99994
+offset_right = -76.00012
+offset_bottom = 511.00006
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.286, 0.286)
+
+[node name="CpuDiscard1" type="TextureButton" parent="." unique_id=501427514]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 256.00024
+offset_top = -519.0
+offset_right = 985.00024
+offset_bottom = 504.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.286, 0.286)
+
+[node name="CpuDiscard2" type="TextureButton" parent="." unique_id=111806914]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 16.000244
+offset_top = -519.0
+offset_right = 745.00024
+offset_bottom = 504.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.286, 0.286)
+
+[node name="CpuDiscard3" type="TextureButton" parent="." unique_id=300671958]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -226.0
+offset_top = -517.9999
+offset_right = 503.0
+offset_bottom = 505.00012
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.286, 0.286)
+
+[node name="CpuDiscard4" type="TextureButton" parent="." unique_id=1367646474]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -466.0
+offset_top = -519.0
+offset_right = 263.0
+offset_bottom = 504.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.286, 0.286)
+
+[node name="Hand1" type="TextureButton" parent="." unique_id=1575659051]
+layout_mode = 0
+offset_left = 714.99994
+offset_top = -585.00006
+offset_right = 1449.0
+offset_bottom = 446.99994
+scale = Vector2(0.28617746, 0.2861775)
+texture_normal = ExtResource("1_g3omm")
+
+[node name="Hand2" type="TextureButton" parent="." unique_id=1043736094]
+layout_mode = 0
+offset_left = 667.0
+offset_top = -628.0
+offset_right = 1401.0
+offset_bottom = 404.0
+scale = Vector2(0.28617746, 0.2861775)
+texture_normal = ExtResource("1_g3omm")
+
+[node name="Hand3" type="TextureButton" parent="." unique_id=56583111]
+layout_mode = 0
+offset_left = 619.99994
+offset_top = -665.0
+offset_right = 1354.0
+offset_bottom = 367.0
+scale = Vector2(0.28617746, 0.2861775)
+texture_normal = ExtResource("1_g3omm")
+
+[node name="Hand4" type="TextureButton" parent="." unique_id=1622221368]
+layout_mode = 0
+offset_left = 572.99994
+offset_top = -702.00006
+offset_right = 1307.0
+offset_bottom = 329.99994
+scale = Vector2(0.28617746, 0.2861775)
+texture_normal = ExtResource("1_g3omm")
+
+[node name="Hand5" type="TextureButton" parent="." unique_id=1928757830]
+layout_mode = 0
+offset_left = 534.0
+offset_top = -738.00006
+offset_right = 1268.0
+offset_bottom = 293.99994
+scale = Vector2(0.28617746, 0.2861775)
+texture_normal = ExtResource("1_g3omm")

@@ -1,0 +1,136 @@
+[gd_scene format=3 uid="uid://dw0ic588ym0xe"]
+
+[ext_resource type="Texture2D" uid="uid://bklqcleehei0a" path="res://Sprites/Cards/10_clubs.jpg" id="1_lwipk"]
+
+[node name="PlayerUI" type="Control" unique_id=1473172951]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Stock" type="TextureButton" parent="." unique_id=724834050]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -596.0
+offset_top = 513.0
+offset_right = 133.0
+offset_bottom = 1536.0001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -3.1415925
+scale = Vector2(0.286, 0.286)
+
+[node name="Discard1" type="TextureButton" parent="." unique_id=629251879]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.506
+offset_top = 520.5783
+offset_right = 472.494
+offset_bottom = 1543.5784
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -3.1415925
+scale = Vector2(0.286, 0.286)
+
+[node name="Discard2" type="TextureButton" parent="." unique_id=404747985]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.506134
+offset_top = 520.57806
+offset_right = 712.4939
+offset_bottom = 1543.5781
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -3.1415925
+scale = Vector2(0.286, 0.286)
+
+[node name="Discard3" type="TextureButton" parent="." unique_id=2027592026]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 224.49411
+offset_top = 521.5783
+offset_right = 953.494
+offset_bottom = 1544.5784
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -3.1415925
+scale = Vector2(0.286, 0.286)
+
+[node name="Discard4" type="TextureButton" parent="." unique_id=1567779549]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 462.494
+offset_top = 520.5782
+offset_right = 1191.494
+offset_bottom = 1543.5781
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -3.1415925
+scale = Vector2(0.286, 0.286)
+
+[node name="Hand1" type="TextureButton" parent="." unique_id=985808693]
+layout_mode = 0
+offset_left = 1487.0
+offset_top = 927.0
+offset_right = 2221.0
+offset_bottom = 1959.0
+scale = Vector2(0.28617746, 0.2861775)
+texture_normal = ExtResource("1_lwipk")
+
+[node name="Hand2" type="TextureButton" parent="." unique_id=1793694759]
+layout_mode = 0
+offset_left = 1531.0
+offset_top = 903.0
+offset_right = 2265.0
+offset_bottom = 1935.0
+scale = Vector2(0.28617746, 0.2861775)
+texture_normal = ExtResource("1_lwipk")
+
+[node name="Hand3" type="TextureButton" parent="." unique_id=1196077738]
+layout_mode = 0
+offset_left = 1584.0
+offset_top = 882.0
+offset_right = 2318.0
+offset_bottom = 1914.0
+scale = Vector2(0.28617746, 0.2861775)
+texture_normal = ExtResource("1_lwipk")
+
+[node name="Hand4" type="TextureButton" parent="." unique_id=1727844287]
+layout_mode = 0
+offset_left = 1630.0
+offset_top = 863.0
+offset_right = 2364.0
+offset_bottom = 1895.0
+scale = Vector2(0.28617746, 0.2861775)
+texture_normal = ExtResource("1_lwipk")
+
+[node name="Hand5" type="TextureButton" parent="." unique_id=1074631793]
+layout_mode = 0
+offset_left = 1676.0
+offset_top = 842.0
+offset_right = 2410.0
+offset_bottom = 1874.0
+scale = Vector2(0.28617746, 0.2861775)
+texture_normal = ExtResource("1_lwipk")
