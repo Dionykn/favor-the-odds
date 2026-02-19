@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://4vtkrjshxhyv"]
+
+[ext_resource type="Script" uid="uid://djw5jl5si1kd8" path="res://Scripts/game_manager.gd" id="1_e5fcp"]
+[ext_resource type="Script" uid="uid://be433tkwpvt07" path="res://Scripts/deck.gd" id="2_sq00h"]
+
+[node name="GameManager" type="Node" unique_id=1961776451]
+script = ExtResource("1_e5fcp")
+
+[node name="Deck" type="Node" parent="." unique_id=1375244795]
+script = ExtResource("2_sq00h")

@@ -1,14 +1,22 @@
-[gd_scene format=3 uid="uid://4vtkrjshxhyv"]
+[gd_scene format=3 uid="uid://cbq0pqbm3l8bc"]
 
-[node name="GameManager" type="Control" unique_id=1602686951]
+[ext_resource type="Script" uid="uid://dq45q6nwa1juw" path="res://Scripts/board.gd" id="1_2wvcj"]
+[ext_resource type="PackedScene" uid="uid://cxwsimdgudlrf" path="res://Scenes/background.tscn" id="1_tnbny"]
+
+[node name="Board" type="Control" unique_id=1897331553]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_2wvcj")
 
-[node name="Deck" type="TextureButton" parent="." unique_id=561800478]
+[node name="Background" parent="." unique_id=1424579385 instance=ExtResource("1_tnbny")]
+visible = false
+layout_mode = 1
+
+[node name="Deck" type="TextureButton" parent="." unique_id=1562250148]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -24,7 +32,7 @@ grow_vertical = 2
 rotation = -1.5707964
 scale = Vector2(0.28617746, 0.2861775)
 
-[node name="Discard" type="TextureButton" parent="." unique_id=1605564200]
+[node name="Discard" type="TextureButton" parent="." unique_id=738468194]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

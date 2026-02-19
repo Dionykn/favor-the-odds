@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cadt1ifwkaxi0"]
 
 [ext_resource type="Script" uid="uid://dv5h8ai3uuw4e" path="res://control.gd" id="1_0fbet"]
-[ext_resource type="Texture2D" uid="uid://ccrwxpxrd0aje" path="res://background.png" id="2_62e2m"]
+[ext_resource type="Texture2D" uid="uid://ccrwxpxrd0aje" path="res://Sprites/background.png" id="2_62e2m"]
 [ext_resource type="Texture2D" uid="uid://bklqcleehei0a" path="res://Sprites/Cards/10_clubs.jpg" id="3_qtu10"]
 [ext_resource type="Texture2D" uid="uid://diqororosxni1" path="res://Sprites/Cards/back.jpg" id="4_ee4bf"]
 

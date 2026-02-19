@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://dw0ic588ym0xe"]
 
+[ext_resource type="PackedScene" uid="uid://cxwsimdgudlrf" path="res://Scenes/background.tscn" id="1_dxtgh"]
 [ext_resource type="Texture2D" uid="uid://bklqcleehei0a" path="res://Sprites/Cards/10_clubs.jpg" id="1_lwipk"]
+[ext_resource type="Script" uid="uid://wba1jo4yul77" path="res://Scripts/player_ui.gd" id="1_qipxh"]
 
 [node name="PlayerUI" type="Control" unique_id=1473172951]
 layout_mode = 3
@@ -9,6 +11,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_qipxh")
+
+[node name="Background" parent="." unique_id=1424579385 instance=ExtResource("1_dxtgh")]
+visible = false
+layout_mode = 1
 
 [node name="Stock" type="TextureButton" parent="." unique_id=724834050]
 layout_mode = 1

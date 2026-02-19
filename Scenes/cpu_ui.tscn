@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://0dxn3w7pjr2f"]
 
 [ext_resource type="Texture2D" uid="uid://diqororosxni1" path="res://Sprites/Cards/back.jpg" id="1_g3omm"]
+[ext_resource type="Script" uid="uid://wba1jo4yul77" path="res://Scripts/player_ui.gd" id="1_qaky2"]
+[ext_resource type="PackedScene" uid="uid://cxwsimdgudlrf" path="res://Scenes/background.tscn" id="1_ywuqs"]
 
 [node name="CpuUI" type="Control" unique_id=538773785]
 layout_mode = 3
@@ -11,6 +13,11 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_qaky2")
+
+[node name="Background" parent="." unique_id=1424579385 instance=ExtResource("1_ywuqs")]
+visible = false
+layout_mode = 1
 
 [node name="CpuDeck" type="TextureButton" parent="." unique_id=899339495]
 layout_mode = 1
