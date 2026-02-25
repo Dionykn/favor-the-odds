@@ -1,20 +1,21 @@
 [gd_scene format=3 uid="uid://dw0ic588ym0xe"]
 
 [ext_resource type="PackedScene" uid="uid://cxwsimdgudlrf" path="res://Scenes/background.tscn" id="1_dxtgh"]
-[ext_resource type="Texture2D" uid="uid://bklqcleehei0a" path="res://Sprites/Cards/10_clubs.jpg" id="1_lwipk"]
 [ext_resource type="Script" uid="uid://wba1jo4yul77" path="res://Scripts/player_ui.gd" id="1_qipxh"]
+[ext_resource type="Texture2D" uid="uid://b6hj1tskiuw7a" path="res://Sprites/Cards/joker.png" id="3_qipxh"]
 
 [node name="PlayerUI" type="Control" unique_id=1473172951]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_qipxh")
 
 [node name="Background" parent="." unique_id=1424579385 instance=ExtResource("1_dxtgh")]
-visible = false
 layout_mode = 1
 
 [node name="Stock" type="TextureButton" parent="." unique_id=724834050]
@@ -24,14 +25,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -596.0
-offset_top = 513.0
-offset_right = 133.0
-offset_bottom = 1536.0001
+offset_left = -809.0
+offset_top = 226.0
+offset_right = -600.0
+offset_bottom = 519.0
 grow_horizontal = 2
 grow_vertical = 2
-rotation = -3.1415925
-scale = Vector2(0.286, 0.286)
+texture_normal = ExtResource("3_qipxh")
 
 [node name="Discard1" type="TextureButton" parent="." unique_id=629251879]
 layout_mode = 1
@@ -40,14 +40,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -256.506
-offset_top = 520.5783
-offset_right = 472.494
-offset_bottom = 1543.5784
+offset_left = -465.0
+offset_top = 226.00018
+offset_right = -256.0
+offset_bottom = 519.0002
 grow_horizontal = 2
 grow_vertical = 2
-rotation = -3.1415925
-scale = Vector2(0.286, 0.286)
+texture_normal = ExtResource("3_qipxh")
 
 [node name="Discard2" type="TextureButton" parent="." unique_id=404747985]
 layout_mode = 1
@@ -56,14 +55,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -16.506134
-offset_top = 520.57806
-offset_right = 712.4939
-offset_bottom = 1543.5781
+offset_left = -225.00024
+offset_top = 226.0
+offset_right = -16.000244
+offset_bottom = 519.0
 grow_horizontal = 2
 grow_vertical = 2
-rotation = -3.1415925
-scale = Vector2(0.286, 0.286)
+texture_normal = ExtResource("3_qipxh")
 
 [node name="Discard3" type="TextureButton" parent="." unique_id=2027592026]
 layout_mode = 1
@@ -72,14 +70,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 224.49411
-offset_top = 521.5783
-offset_right = 953.494
-offset_bottom = 1544.5784
+offset_left = 16.0
+offset_top = 227.00018
+offset_right = 225.0
+offset_bottom = 520.0002
 grow_horizontal = 2
 grow_vertical = 2
-rotation = -3.1415925
-scale = Vector2(0.286, 0.286)
+texture_normal = ExtResource("3_qipxh")
 
 [node name="Discard4" type="TextureButton" parent="." unique_id=1567779549]
 layout_mode = 1
@@ -88,56 +85,52 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 462.494
-offset_top = 520.5782
-offset_right = 1191.494
-offset_bottom = 1543.5781
+offset_left = 253.99994
+offset_top = 226.0
+offset_right = 462.99994
+offset_bottom = 519.0
 grow_horizontal = 2
 grow_vertical = 2
-rotation = -3.1415925
-scale = Vector2(0.286, 0.286)
+texture_normal = ExtResource("3_qipxh")
 
 [node name="Hand1" type="TextureButton" parent="." unique_id=985808693]
 layout_mode = 0
-offset_left = 1487.0
-offset_top = 927.0
-offset_right = 2221.0
-offset_bottom = 1959.0
-scale = Vector2(0.28617746, 0.2861775)
-texture_normal = ExtResource("1_lwipk")
+offset_left = 521.5
+offset_top = 427.0
+offset_right = 730.5
+offset_bottom = 720.0
+texture_normal = ExtResource("3_qipxh")
 
 [node name="Hand2" type="TextureButton" parent="." unique_id=1793694759]
 layout_mode = 0
-offset_left = 1531.0
-offset_top = 903.0
-offset_right = 2265.0
-offset_bottom = 1935.0
-scale = Vector2(0.28617746, 0.2861775)
-texture_normal = ExtResource("1_lwipk")
+offset_left = 565.5
+offset_top = 403.0
+offset_right = 774.5
+offset_bottom = 696.0
+texture_normal = ExtResource("3_qipxh")
 
 [node name="Hand3" type="TextureButton" parent="." unique_id=1196077738]
 layout_mode = 0
-offset_left = 1584.0
-offset_top = 882.0
-offset_right = 2318.0
-offset_bottom = 1914.0
-scale = Vector2(0.28617746, 0.2861775)
-texture_normal = ExtResource("1_lwipk")
+offset_left = 618.5
+offset_top = 382.0
+offset_right = 827.5
+offset_bottom = 675.0
+texture_normal = ExtResource("3_qipxh")
 
 [node name="Hand4" type="TextureButton" parent="." unique_id=1727844287]
 layout_mode = 0
-offset_left = 1630.0
-offset_top = 863.0
-offset_right = 2364.0
-offset_bottom = 1895.0
-scale = Vector2(0.28617746, 0.2861775)
-texture_normal = ExtResource("1_lwipk")
+offset_left = 664.5
+offset_top = 363.0
+offset_right = 873.5
+offset_bottom = 656.0
+texture_normal = ExtResource("3_qipxh")
 
 [node name="Hand5" type="TextureButton" parent="." unique_id=1074631793]
 layout_mode = 0
-offset_left = 1676.0
-offset_top = 842.0
-offset_right = 2410.0
-offset_bottom = 1874.0
-scale = Vector2(0.28617746, 0.2861775)
-texture_normal = ExtResource("1_lwipk")
+offset_left = 710.5
+offset_top = 342.0
+offset_right = 919.5
+offset_bottom = 635.0
+texture_normal = ExtResource("3_qipxh")
+
+[connection signal="pressed" from="Stock" to="." method="_on_stock_pressed"]

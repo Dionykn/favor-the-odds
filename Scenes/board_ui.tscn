@@ -1,0 +1,144 @@
+[gd_scene format=3 uid="uid://cbq0pqbm3l8bc"]
+
+[ext_resource type="Script" uid="uid://dq45q6nwa1juw" path="res://Scripts/board_ui.gd" id="1_2wvcj"]
+[ext_resource type="PackedScene" uid="uid://cxwsimdgudlrf" path="res://Scenes/background.tscn" id="1_tnbny"]
+[ext_resource type="Texture2D" uid="uid://bxxm15jafjuwe" path="res://Sprites/Cards/back.png" id="3_mslhw"]
+[ext_resource type="Texture2D" uid="uid://b6hj1tskiuw7a" path="res://Sprites/Cards/joker.png" id="4_014rv"]
+
+[node name="BoardUI" type="Control" unique_id=1897331553]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2wvcj")
+
+[node name="Background" parent="." unique_id=1424579385 instance=ExtResource("1_tnbny")]
+layout_mode = 1
+
+[node name="Deck" type="TextureButton" parent="." unique_id=1562250148]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -847.0
+offset_top = 99.0
+offset_right = -638.0
+offset_bottom = 392.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -1.5707964
+texture_normal = ExtResource("3_mslhw")
+
+[node name="Build1" type="TextureButton" parent="." unique_id=1255794751]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -466.0
+offset_top = -150.0
+offset_right = -257.0
+offset_bottom = 143.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("4_014rv")
+
+[node name="JokerLayer" type="TextureRect" parent="Build1" unique_id=512195906]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Build2" type="TextureButton" parent="." unique_id=2022252574]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -225.0
+offset_top = -150.0
+offset_right = -16.0
+offset_bottom = 143.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("4_014rv")
+
+[node name="JokerLayer" type="TextureRect" parent="Build2" unique_id=265284458]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Build3" type="TextureButton" parent="." unique_id=1305948579]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 12.0
+offset_top = -150.0
+offset_right = 221.0
+offset_bottom = 143.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("4_014rv")
+
+[node name="JokerLayer" type="TextureRect" parent="Build3" unique_id=1678674310]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Build4" type="TextureButton" parent="." unique_id=1021332298]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 251.0
+offset_top = -150.0
+offset_right = 460.0
+offset_bottom = 143.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("4_014rv")
+
+[node name="JokerLayer" type="TextureRect" parent="Build4" unique_id=1398352386]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Discard" type="TextureRect" parent="." unique_id=1253197333]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 557.0
+offset_top = 97.5
+offset_right = 766.0
+offset_bottom = 390.5
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -1.5707964
+texture = ExtResource("3_mslhw")
+
+[connection signal="pressed" from="Deck" to="." method="_on_deck_pressed"]
