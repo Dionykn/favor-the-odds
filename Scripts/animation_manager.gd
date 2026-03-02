@@ -128,25 +128,77 @@ func animate_card_with_flip(card_value: String, src_node: Control, dst_node: Con
 
 	tr.visible = false
 
-func animate_completion(pile: Array, src_node: Control, dst_node: Control) -> void:
+## Animates build pile completion one card at a time from the top down.
+## after_card_cb(remaining_pile) is called after each card lands so the
+## build pile node texture can be updated to show the card below.
+func animate_completion(pile: Array, src_node: Control, dst_node: Control, after_card_cb: Callable, final_cb: Callable = Callable()) -> void:
 	var dst_pos = node_visual_position(dst_node)
+	var dst_rot = rad_to_deg(dst_node.rotation)
+	var remaining = pile.duplicate()
+	var total_duration = 2.0
+	var card_count = max(pile.size(), 1)
+	# Each card travels for card_duration, next card starts after stagger
+	# overlap means multiple cards are in flight at once
+	var card_duration = total_duration * 0.5
+	var stagger = (total_duration - card_duration) / card_count
 
-	for i in range(pile.size()):
+	# Animate from top card (back of array) down to bottom
+	while not remaining.is_empty():
+		var card = remaining.back()
 		var tr = get_card()
-		tr.texture = card_to_texture(pile[i])
+		tr.texture = card_to_texture(card)
 		var card_size = src_node.get_global_rect().size
 		tr.size = card_size
 		tr.pivot_offset = card_size / 2
 		tr.position = node_visual_position(src_node)
-		tr.rotation_degrees = 0.0
+		tr.rotation_degrees = rad_to_deg(src_node.rotation)
 		tr.modulate = Color(1, 1, 1, 1)
 		tr.visible = true
+
+		# Remove card from remaining before animating so after_card_cb
+		# shows the card below while this one is still in flight
+		remaining.pop_back()
+		after_card_cb.call(remaining)
 
 		var tween = create_tween()
 		tween.set_ease(Tween.EASE_IN_OUT)
 		tween.set_trans(Tween.TRANS_CUBIC)
-		tween.tween_interval(i * COMPLETE_STAGGER)
-		tween.tween_property(tr, "position", dst_pos, ANIM_DURATION)
-		tween.tween_callback(tr.hide)
+		tween.set_parallel(true)
+		tween.tween_property(tr, "position", dst_pos, card_duration)
+		tween.tween_property(tr, "rotation_degrees", dst_rot, card_duration)
+		# Hide after travel completes, but don't await — let next card start early
+		tween.tween_callback(tr.hide).set_delay(card_duration)
 
-	await get_tree().create_timer(pile.size() * COMPLETE_STAGGER + ANIM_DURATION).timeout
+		# Wait only the stagger before launching the next card
+		await get_tree().create_timer(stagger).timeout
+
+	# Wait for the last card to finish travelling
+	await get_tree().create_timer(card_duration).timeout
+
+	# Flip the destination node face-down after last card arrives
+	var flip_duration = 0.2
+	var completed_tr = get_card()
+	var card_size = dst_node.get_global_rect().size
+	completed_tr.texture = dst_node.texture
+	completed_tr.size = card_size
+	completed_tr.pivot_offset = card_size / 2
+	completed_tr.position = node_visual_position(dst_node)
+	completed_tr.rotation_degrees = dst_rot
+	completed_tr.scale = Vector2(1, 1)
+	completed_tr.modulate = Color(1, 1, 1, 1)
+	completed_tr.visible = true
+
+	var flip1 = create_tween()
+	flip1.tween_property(completed_tr, "scale:y", 0.0, flip_duration).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
+	await flip1.finished
+
+	completed_tr.texture = load("res://Sprites/Cards/back.png")
+	completed_tr.scale.y = 0.0
+
+	var flip2 = create_tween()
+	flip2.tween_property(completed_tr, "scale:y", 1.0, flip_duration).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+	await flip2.finished
+	completed_tr.visible = false
+
+	if final_cb.is_valid():
+		final_cb.call()

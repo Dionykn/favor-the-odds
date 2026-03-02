@@ -193,8 +193,18 @@ func _on_card_moved(card_value: String, source: String, source_index: int, dest:
 	game.emit_signal("animation_done")
 
 func _on_build_completed(pile: Array, build_index: int) -> void:
-	await anim.animate_completion(pile, get_build_node(build_index), get_completed_node())
-	refresh_ui()
+	var build_node = get_build_node(build_index)
+	var completed_node = get_completed_node()
+	# Hide the joker layer immediately if present
+	board_ui.build_joker_layers[build_index].visible = false
+
+	var after_card = func(remaining: Array):
+		if remaining.is_empty():
+			build_node.texture_normal = null
+		else:
+			build_node.texture_normal = board_ui.card_to_texture(remaining.back())
+
+	await anim.animate_completion(pile, build_node, completed_node, after_card, refresh_ui)
 	is_animating = false
 	game.emit_signal("animation_done")
 
