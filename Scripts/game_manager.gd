@@ -18,7 +18,8 @@ signal game_started
 signal player_hand_changed
 signal cpu_hand_changed
 signal deck_count_changed(count:int)
-signal player_stock_changed
+signal player_stock_changed(count:int)
+signal cpu_stock_changed(count:int)
 signal turn_changed(whose_turn:String, phase:String)
 signal game_over(winner:String)
 signal card_moved(card_value:String, source:String, source_index:int, dest:String, dest_index:int, whose:String)
@@ -47,6 +48,8 @@ func start_game():
 	determine_first_player()
 	emit_signal("game_started")
 	emit_signal("deck_count_changed", deck.cards.size())
+	emit_signal("player_stock_changed", player.stock.size())
+	emit_signal("cpu_stock_changed", cpu.stock.size())
 	emit_signal("turn_changed", current_turn, turn_phase)
 
 func determine_first_player():
@@ -154,7 +157,7 @@ func move_card_to_build(build_index):
 		card = player_obj.hand.pop_at(selected_card.index)
 	elif src == "stock":
 		card = player_obj.stock.pop_back()
-		emit_signal("player_stock_changed")
+		emit_signal("player_stock_changed", player.stock.size())
 	elif src == "discard":
 		card = player_obj.discards[selected_card.index].pop_back()
 
@@ -229,6 +232,7 @@ func cpu_take_turn():
 					await get_tree().process_frame
 					await animation_done
 					moved = true
+					emit_signal("cpu_stock_changed", cpu.stock.size())
 					check_win()
 					break
 

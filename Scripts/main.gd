@@ -6,6 +6,8 @@ extends Control
 @onready var cpu_ui : PlayerUI = $CpuUI
 @onready var anim : AnimationManager = $AnimationManager
 @onready var cards_left_label = $DeckLabel
+@onready var player_stock_label = $PlayerStockLabel
+@onready var cpu_stock_label = $CpuStockLabel
 @onready var start_button = $StartButton
 @onready var turn_label = $TurnLabel
 @onready var drag_card : TextureRect = $DragCard
@@ -26,6 +28,8 @@ func _ready():
 	game.game_started.connect(_on_game_started)
 	game.deck_count_changed.connect(_on_deck_count_changed)
 	game.turn_changed.connect(_on_turn_changed)
+	game.player_stock_changed.connect(_on_player_stock_changed)
+	game.cpu_stock_changed.connect(_on_cpu_stock_changed)
 	game.game_over.connect(_on_game_over)
 	game.card_moved.connect(_on_card_moved)
 	game.build_completed.connect(_on_build_completed)
@@ -262,9 +266,15 @@ func _on_turn_changed(whose_turn: String, phase: String):
 				await get_tree().create_timer(0.5).timeout
 				game.cpu_take_turn()
 		"play":
-			turn_label.text = "Your turn:\nPlay cards\nDiscard to end turn" if whose_turn == "human" else "CPU is playing..."
+			turn_label.text = "Your turn:\nPlay cards or\ndiscard to end turn" if whose_turn == "human" else "CPU is playing..."
 		"discard":
 			turn_label.text = "CPU is discarding..."
+
+func _on_player_stock_changed(count: int):
+	player_stock_label.text = str(count) + " / " + str(game.player_stock_size)
+
+func _on_cpu_stock_changed(count: int):
+	cpu_stock_label.text = str(count) + " / " + str(game.player_stock_size)
 
 func _on_game_over(winner: String):
 	turn_label.text = "You win!" if winner == "human" else "CPU wins!"
