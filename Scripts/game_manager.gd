@@ -96,6 +96,8 @@ func refill_deck():
 func select_card_from_hand(index):
 	if current_turn != "human" or turn_phase != "play":
 		return
+	if index >= player.hand.size():
+		return
 	selected_card = {"value": player.hand[index], "player": "human", "source": "hand", "index": index}
 
 func select_card_from_discard(index):

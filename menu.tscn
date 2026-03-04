@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://bynn3s6x5xwlj"]
+
+[ext_resource type="Texture2D" uid="uid://qmm7bsc8ge7j" path="res://Sprites/menu_wallpaper_v3.png" id="1_ouk20"]
+[ext_resource type="Texture2D" uid="uid://cn1inyjiopba8" path="res://Sprites/card_highlight.png" id="2_mae5d"]
+
+[node name="Menu" type="CanvasLayer" unique_id=680896859]
+
+[node name="Background" type="TextureRect" parent="." unique_id=1108188950]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ouk20")
+
+[node name="StartButton" type="TextureButton" parent="." unique_id=967614867]
+custom_minimum_size = Vector2(60, 50)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -5.0
+offset_right = 30.0
+offset_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.575, 1.575)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture_hover = ExtResource("2_mae5d")
+
+[node name="SettingsButton" type="Button" parent="." unique_id=1391157533]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = 191.0
+offset_right = 150.0
+offset_bottom = 291.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 42
+text = "SETTINGS"
+
+[node name="QuitButton" type="Button" parent="." unique_id=482989684]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = 319.0
+offset_right = 150.0
+offset_bottom = 419.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 42
+text = "QUIT"

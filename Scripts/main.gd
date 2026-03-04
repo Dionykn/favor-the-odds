@@ -1,5 +1,6 @@
 extends Control
 
+@onready var menu = $Menu
 @onready var game : GameManager = $GameManager
 @onready var board_ui = $BoardUI
 @onready var player_ui : PlayerUI = $PlayerUI
@@ -8,7 +9,7 @@ extends Control
 @onready var cards_left_label = $DeckLabel
 @onready var player_stock_label = $PlayerStockLabel
 @onready var cpu_stock_label = $CpuStockLabel
-@onready var start_button = $StartButton
+@onready var start_button = $Menu/StartButton
 @onready var turn_label = $TurnLabel
 @onready var drag_card : TextureRect = $DragCard
 
@@ -204,7 +205,8 @@ func _on_build_completed(pile: Array, build_index: int) -> void:
 		else:
 			build_node.texture_normal = board_ui.card_to_texture(remaining.back())
 
-	await anim.animate_completion(pile, build_node, completed_node, after_card, refresh_ui)
+	await anim.animate_completion(pile, build_node, completed_node, after_card)
+	refresh_ui()
 	is_animating = false
 	game.emit_signal("animation_done")
 
@@ -295,6 +297,8 @@ func _on_game_over(winner: String):
 func _on_start_button_pressed():
 	game.start_game()
 	start_button.visible = false
+	menu.visible = false
+	print("game started")
 
 func _on_deck_clicked():
 	if is_animating:
@@ -302,11 +306,15 @@ func _on_deck_clicked():
 	game.player_draw()
 
 func _on_build_clicked(index):
+	if is_animating:
+		return
 	if game.selected_card != null:
 		stop_drag()
 		game.try_play_to_build(index)
 
 func _on_player_hand_clicked(index):
+	if is_animating:
+		return
 	if game.selected_card != null:
 		stop_drag()
 	game.select_card_from_hand(index)
@@ -315,6 +323,8 @@ func _on_player_hand_clicked(index):
 		player_ui.hand_slots[game.selected_card.index].texture_normal = null
 
 func _on_player_discard_clicked(index):
+	if is_animating:
+		return
 	if game.selected_card != null and game.selected_card.source == "hand":
 		stop_drag()
 		game.try_play_to_discard(index)
@@ -331,9 +341,18 @@ func _on_player_discard_clicked(index):
 				player_ui.discard_piles[index].texture_normal = null
 
 func _on_player_stock_clicked():
+	if is_animating:
+		return
 	if game.selected_card != null:
 		stop_drag()
 	game.select_card_from_stock()
 	if game.selected_card != null:
 		start_drag(game.selected_card.value, get_player_stock_node())
 		player_ui.stock_slot.texture_normal = load("res://Sprites/Cards/back.png")
+
+## MENU UI
+func _on_settings_button_pressed() -> void:
+	pass # Replace with function body.
+
+func _on_quit_button_pressed() -> void:
+	get_tree().quit()

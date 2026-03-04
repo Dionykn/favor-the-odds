@@ -40,3 +40,5 @@ ClearCursor={
 
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true
+environment/defaults/default_clear_color=Color(0.34901962, 0.42352942, 0.27058825, 1)

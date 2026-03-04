@@ -7,6 +7,12 @@
 [ext_resource type="PackedScene" uid="uid://0dxn3w7pjr2f" path="res://Scenes/cpu_ui.tscn" id="5_kek77"]
 [ext_resource type="Script" uid="uid://djw5jl5si1kd8" path="res://Scripts/game_manager.gd" id="6_21xkr"]
 [ext_resource type="Script" uid="uid://dem4i0fxsjdgg" path="res://Scripts/animation_manager.gd" id="7_6bp64"]
+[ext_resource type="Texture2D" uid="uid://qmm7bsc8ge7j" path="res://Sprites/menu_wallpaper_v3.png" id="8_ynf5e"]
+[ext_resource type="Texture2D" uid="uid://cn1inyjiopba8" path="res://Sprites/card_highlight.png" id="9_hptm8"]
+[ext_resource type="Texture2D" uid="uid://vi3g37fmgre2" path="res://Sprites/gear.png" id="10_d1ilt"]
+[ext_resource type="Texture2D" uid="uid://uu2iguwxej8x" path="res://Sprites/gear_pressed.png" id="11_6iyac"]
+[ext_resource type="Texture2D" uid="uid://cu1bqsn0mhuov" path="res://Sprites/cross.png" id="12_fdnlq"]
+[ext_resource type="Texture2D" uid="uid://lj2y5juid00g" path="res://Sprites/cross_pressed.png" id="13_jkdf5"]
 
 [node name="Main" type="Control" unique_id=1555717177]
 layout_mode = 3
@@ -32,22 +38,6 @@ layout_mode = 1
 
 [node name="CpuUI" parent="." unique_id=538773785 instance=ExtResource("5_kek77")]
 layout_mode = 1
-
-[node name="StartButton" type="Button" parent="." unique_id=1926869164]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 559.0
-offset_top = 122.0
-offset_right = 854.0
-offset_bottom = 188.0
-grow_horizontal = 0
-grow_vertical = 2
-theme_override_font_sizes/font_size = 42
-text = "START GAME"
 
 [node name="DeckLabel" type="Label" parent="." unique_id=1017928115]
 layout_mode = 1
@@ -132,6 +122,68 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="AnimationManager" type="CanvasLayer" parent="." unique_id=82710988]
+layer = 10
 script = ExtResource("7_6bp64")
 
-[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[node name="Menu" type="CanvasLayer" parent="." unique_id=312479188]
+
+[node name="Background" type="TextureRect" parent="Menu" unique_id=893901851]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_ynf5e")
+
+[node name="StartButton" type="TextureButton" parent="Menu" unique_id=1372716857]
+custom_minimum_size = Vector2(60, 50)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -5.0
+offset_right = 30.0
+offset_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.575, 1.575)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture_hover = ExtResource("9_hptm8")
+
+[node name="SettingsButton" type="TextureButton" parent="Menu" unique_id=1758810802]
+custom_minimum_size = Vector2(80, 80)
+anchors_preset = -1
+anchor_left = 0.934
+anchor_right = 1.0
+offset_left = 13.719971
+offset_top = 15.0
+offset_right = -13.0
+offset_bottom = 115.0
+grow_horizontal = 0
+texture_normal = ExtResource("10_d1ilt")
+texture_pressed = ExtResource("11_6iyac")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="QuitButton" type="TextureButton" parent="Menu" unique_id=955297158]
+custom_minimum_size = Vector2(100, 100)
+anchors_preset = -1
+anchor_left = 0.934
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 12.719971
+offset_top = -119.0
+offset_right = -14.0
+offset_bottom = -19.0
+grow_horizontal = 0
+texture_normal = ExtResource("12_fdnlq")
+texture_pressed = ExtResource("13_jkdf5")
+ignore_texture_size = true
+stretch_mode = 5
+
+[connection signal="pressed" from="Menu/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Menu/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="Menu/QuitButton" to="." method="_on_quit_button_pressed"]
